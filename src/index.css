@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 45 100% 85%;
+
+    --card: 240 8% 6%;
+    --card-foreground: 45 100% 85%;
+
+    --popover: 240 8% 6%;
+    --popover-foreground: 45 100% 85%;
+
+    --primary: 45 100% 55%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 45 80% 70%;
+
+    --muted: 240 5% 10%;
+    --muted-foreground: 45 40% 60%;
+
+    --accent: 210 100% 55%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 45 100% 55%;
+
+    --radius: 0.75rem;
+
+    --crypto-gold: 45 100% 55%;
+    --electric-blue: 210 100% 55%;
+    --blockchain-green: 120 60% 50%;
+    --ethereum-purple: 260 100% 65%;
+    --bitcoin-orange: 30 100% 55%;
+    --metallic-silver: 210 20% 70%;
+    --machine-dark: 240 8% 8%;
+    --hologram: 45 80% 60%;
+
+    --gradient-machine: linear-gradient(135deg, hsl(var(--machine-dark)), hsl(240 15% 12%));
+    --gradient-crypto: linear-gradient(135deg, hsl(var(--crypto-gold)), hsl(var(--electric-blue)));
+    --gradient-blockchain: linear-gradient(135deg, hsl(var(--crypto-gold)), hsl(var(--ethereum-purple)));
+    --gradient-metallic: linear-gradient(135deg, hsl(210 20% 60%), hsl(210 20% 80%), hsl(210 20% 60%));
+    --gradient-hologram: linear-gradient(135deg, hsl(var(--crypto-gold) / 0.2), hsl(var(--electric-blue) / 0.2));
+
+    --glow-gold: 0 0 20px hsl(var(--crypto-gold) / 0.5);
+    --glow-blue: 0 0 20px hsl(var(--electric-blue) / 0.5);
+    --glow-blockchain: 0 0 20px hsl(var(--blockchain-green) / 0.5);
+    --shadow-machine: 0 8px 32px hsl(240 10% 3.9% / 0.8);
+    --shadow-elevated: 0 20px 60px hsl(240 10% 3.9% / 0.9);
+
+    --transition-machine: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: box-shadow 0.3s ease-in-out;
+    --transition-3d: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .machine-card {
+    @apply bg-card border border-border/50 rounded-xl backdrop-blur-sm;
+    background: var(--gradient-machine);
+    box-shadow: var(--shadow-machine);
+    transition: var(--transition-3d);
+  }
+
+  .machine-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: var(--shadow-elevated), var(--glow-gold);
+  }
+
+  .neon-border {
+    @apply border border-primary/50 rounded-lg;
+    box-shadow: inset 0 0 10px hsl(var(--primary) / 0.1), var(--glow-gold);
+    transition: var(--transition-glow);
+  }
+
+  .neon-border:hover {
+    box-shadow: inset 0 0 20px hsl(var(--primary) / 0.2), var(--glow-gold);
+  }
+
+  .hologram-effect {
+    background: var(--gradient-hologram);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--primary) / 0.3);
+  }
+
+  .particle-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .particle-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, hsl(var(--crypto-gold) / 0.3), transparent),
+      radial-gradient(1px 1px at 40px 70px, hsl(var(--ethereum-purple) / 0.2), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--blockchain-green) / 0.3), transparent),
+      radial-gradient(1px 1px at 130px 80px, hsl(var(--electric-blue) / 0.2), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    animation: particles 20s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes particles {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-150px, -100px); }
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .machine-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .scanning-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanning-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+    animation: scan 3s ease-in-out infinite;
+  }
+
+  @keyframes scan {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+}
